@@ -98,7 +98,3 @@ diffMethAnalysisToBed(phenoName_1,phenoName_2,analysis_path_1,analysis_path_2,re
 
 ```@index
 ```
-
-```@autodocs
-Modules = [InformMe]
-```
