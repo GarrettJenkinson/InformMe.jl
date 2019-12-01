@@ -9,7 +9,6 @@ BlackBoxOptim = "a134a8b2-14d6-55f6-9291-3336d3ab0209"
 DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
 FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
 JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
-QuadDIRECT = "dae52e8d-d666-5120-a592-9e15c33b8d7a"
 
 [compat]
 julia = "1"
