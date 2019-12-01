@@ -34,17 +34,17 @@ For now, informME.jl is an unregistered package, and should be installed
 from the git repository at the pkg prompt:
 
 ```julia
-pkg> add https://github.com/GarrettJenkinson/informME.jl.git
+pkg> add https://github.com/GarrettJenkinson/InformMe.jl
 ```
 or if you have a local clone of the repository:
 
 ```julia
-pkg> add /path/to/local/repo/informme.jl
+pkg> add /path/to/local/repo/InformMe.jl
 ```
 the installation can be tested at the pkg prompt by running
 
 ```julia
-pkg> test informme
+pkg> test InformMe
 ```
 
 # License
