@@ -252,7 +252,7 @@ end
     @test abs(an[10]) < 0.15
 
     # test the objective function
-    newMatrix, CpGstart, CpGend = processMatrix( ansMat )
+    newMatrix, CpGstart, CpGend = InformMe.processMatrix( ansMat )
     @test newMatrix == [ -1  -1  -1  -1  -1   1   1   1   1   1;
                          -1   1   0   1   1   1   0   1   1   0;
                          -1   0   1   1   1   1   1   1   1   0;
@@ -267,8 +267,8 @@ end
     DistInRegion,densityInRegion= 10 .* ones(Int64,10), Float64[0.06 for n=1:10]
     thetaBest = [-0.019,13.1767,0.0335,-3.0,-0.0020]
     function objFnToMinimize(theta::AbstractArray)
-      An,Cn = computeAnCn(densityInRegion,DistInRegion[1:(end-1)],theta)
-      aveLogLikelihood::Float64 = computeAveLogLikelihood(An,Cn,newMatrix', CpGstart, CpGend)
+      An,Cn = InformMe.computeAnCn(densityInRegion,DistInRegion[1:(end-1)],theta)
+      aveLogLikelihood::Float64 = InformMe.computeAveLogLikelihood(An,Cn,newMatrix', CpGstart, CpGend)
       return -1*aveLogLikelihood
     end
     obj = objFnToMinimize(thetaBest)
