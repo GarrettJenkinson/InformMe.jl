@@ -17,6 +17,7 @@
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 # or see <http://www.gnu.org/licenses/>.
 #
+__precompile__(true)
 
 module InformMe
 
