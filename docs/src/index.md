@@ -15,12 +15,11 @@ fastaToCpG(FASTAfilename;
 ```
 
 ```@docs
-convertBAMtoBits(bamFilename,phenoName,chr_num;
+convertBAMtoBits(bamFilenames,phenoName;
                           reference_path="./genome/",
                           bamfile_path="./indexedBAMfiles/",
                           matrices_path="./matrices/",
                           estimation_path="./estimation/",
-                          scratch_path="./scratch/",
                           outdir="./output/",
                           pairedEnds=true,
                           numBasesToTrim=0,
@@ -30,7 +29,9 @@ convertBAMtoBits(bamFilename,phenoName,chr_num;
                           MSIflag=false,
                           ESIflag=false,
                           MCflag=false,
-                          subRegionSize=150)
+                          subRegionSize=150,
+                          chr_nums=1:22,
+                          numProcessors=nprocs())
 ```
 
 

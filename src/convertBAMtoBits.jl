@@ -18,7 +18,7 @@
 # or see <http://www.gnu.org/licenses/>.
 #
 """
- Runs the entire MethToBits pipeline (assuming single BAM file as input)
+ Runs the entire MethToBits pipeline (assuming single BAM file as input).
 """
 function convertBAMtoBits(bamFilenames,phenoName;
                           reference_path="./genome/",
