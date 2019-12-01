@@ -15,7 +15,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install samtools
 after_success:
-  - julia -e 'cd(Pkg.dir("InformMe")); using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
+  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; using InformMe; cd(dirname(dirname(pathof(InformMe)))); Codecov.submit(process_folder())'
   - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Coveralls.submit(process_folder())'
 jobs:
   include:
