@@ -235,7 +235,6 @@ include("diffMethAnalysisToBed.jl")
 include("exactSampling.jl") # fully tested
 include("findSortedIndices.jl") # fully tested
 include("h_func.jl") # fully tested
-#include("informME.jl") # no testing needed?
 include("makeBedsForMethAnalysis.jl")
 include("maxent.jl") # fully tested
 include("methAnalysisForRegion.jl")
