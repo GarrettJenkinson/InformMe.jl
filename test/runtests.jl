@@ -29,20 +29,20 @@ using JLD2
     an = zeros(Float64,10)
     cn = zeros(Float64,9)
 
-    logZ1,logZ0,logZ = informme.computeZ(an,cn)
+    logZ1,logZ0,logZ = InformMe.computeZ(an,cn)
     @test logZ ≈ (10*log(2))
 
-    p1,transProbs = informme.computeMCtransProbs(an,cn,logZ1,logZ0,logZ)
+    p1,transProbs = InformMe.computeMCtransProbs(an,cn,logZ1,logZ0,logZ)
     @test p1 ≈ 0.5
     @test transProbs ≈ 0.5.*ones(9,2)
 
-    logZ1tilde,logZ0tilde,logZtilde = informme.computeZtilde(an,cn)
+    logZ1tilde,logZ0tilde,logZtilde = InformMe.computeZtilde(an,cn)
     @test logZtilde ≈ (10*log(2))
 
-    logMargProb = informme.calcMargProb(1,2,Int8[0,1,0],logZ1,logZ0,logZ,logZ1tilde,logZ0tilde,an,cn)
+    logMargProb = InformMe.calcMargProb(1,2,Int8[0,1,0],logZ1,logZ0,logZ,logZ1tilde,logZ0tilde,an,cn)
     @test logMargProb ≈ 3*log(0.5)
 
-    yProbs,yVals,NMEy = informme.computeLstats(0.5,0.5*ones(10,2))
+    yProbs,yVals,NMEy = InformMe.computeLstats(0.5,0.5*ones(10,2))
     @test yProbs ≈  [0.00048828125,
                      0.00537109375,
                      0.02685546875,
@@ -57,64 +57,64 @@ using JLD2
                      0.00048828125]
     @test NMEy ≈ 0.7742121153511642
 
-    yProbs,yVals,NMEy = informme.computeLstats(0.5,0.5*ones(20,2))
+    yProbs,yVals,NMEy = InformMe.computeLstats(0.5,0.5*ones(20,2))
     @test NMEy ≈ 0.72805193277145
 
-    x,y,z=informme.maxent([0.5],0:(1/10):1)
+    x,y,z=InformMe.maxent([0.5],0:(1/10):1)
     @test y ≈ 0.09090909090909093.*ones(11)
 
-    Xsamp = informme.exactSampling(0.5,0.5*ones(1000000,2))
+    Xsamp = InformMe.exactSampling(0.5,0.5*ones(1000000,2))
     @test 0.49 <= mean(Xsamp) <= 0.51
 
-    C,ia,ic = informme.uniqueOct(["test","testing","test","testing","testtest"])
+    C,ia,ic = InformMe.uniqueOct(["test","testing","test","testing","testtest"])
     @test C == ["test","testing","testtest"]
     @test ia == [1,2,5]
     @test ic == [1,2,1,2,3]
 
-    entVals = informme.h_func([-1 1.0;0.5 0.75])
+    entVals = InformMe.h_func([-1 1.0;0.5 0.75])
     @test entVals ≈ [0.0 0.0;1.0 0.8112781244591328]
 
-    i,j = informme.findSortedIndices(collect(-1:2:100),-5,1)
+    i,j = InformMe.findSortedIndices(collect(-1:2:100),-5,1)
     @test [i,j] == [1,2]
-    i,j = informme.findSortedIndices(collect(-1:2:100),100,101)
+    i,j = InformMe.findSortedIndices(collect(-1:2:100),100,101)
     @test [i,j] == [0,-1]
-    i,j = informme.findSortedIndices(collect(-1:2:100),99,101)
+    i,j = InformMe.findSortedIndices(collect(-1:2:100),99,101)
     @test [i,j] == [51,51]
-    i,j = informme.findSortedIndices(collect(-1:2:100),-5,-4)
+    i,j = InformMe.findSortedIndices(collect(-1:2:100),-5,-4)
     @test [i,j] == [0,-1]
-    i,j = informme.findSortedIndices(collect(-1:2:100),1,5)
+    i,j = InformMe.findSortedIndices(collect(-1:2:100),1,5)
     @test [i,j] == [2,4]
 
-    dens = informme.nDensity(collect(1:200:401),2,400)
+    dens = InformMe.nDensity(collect(1:200:401),2,400)
     @test dens ≈ (3.0/400)
 
     density = ones(Float64,10)
     Dist = 2 .* ones(Int64,9)
-    an,cn = informme.computeAnCn(ones(10),Dist,[1.;2;3;4;5])
+    an,cn = InformMe.computeAnCn(ones(10),Dist,[1.;2;3;4;5])
     @test an ≈ [4.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 5.0]
     @test cn ≈ [1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5]
 
     an=zeros(10);cn=zeros(9);
-    aveLogLike=informme.computeAveLogLikelihood(an,cn,zeros(Int8,8,10)',
+    aveLogLike=InformMe.computeAveLogLikelihood(an,cn,zeros(Int8,8,10)',
                                                 ones(Int,8),10 .*ones(Int,8))
     @test aveLogLike ≈ 10*log(0.5)
 
     an=ones(10)
-    aveLogLike=informme.computeAveLogLikelihood(an,cn,ones(Int8,10,10)',
+    aveLogLike=InformMe.computeAveLogLikelihood(an,cn,ones(Int8,10,10)',
                                                 ones(Int,10),10 .*ones(Int,10))
     @test aveLogLike ≈ -1.2692801104297242
 
     cn=ones(9)
-    aveLogLike=informme.computeAveLogLikelihood(an,cn,ones(Int8,10,10)',
+    aveLogLike=InformMe.computeAveLogLikelihood(an,cn,ones(Int8,10,10)',
                                                 ones(Int,10),10 .*ones(Int,10))
     @test aveLogLike ≈ -0.06417626486765826
 
     an=collect(1:10.)
-    aveLogLike=informme.computeAveLogLikelihood(an,cn,ones(Int8,10,10)',
+    aveLogLike=InformMe.computeAveLogLikelihood(an,cn,ones(Int8,10,10)',
                                                 ones(Int,10),10 .*ones(Int,10))
     @test aveLogLike ≈ -0.018862691685896493
 
-    newMatrix, CpGstart, CpGend = informme.processMatrix(Int8[-1 0 -1 1 -1 1;])
+    newMatrix, CpGstart, CpGend = InformMe.processMatrix(Int8[-1 0 -1 1 -1 1;])
     @test newMatrix == [-1   0  -1  -1  -1  -1;
                         -1  -1  -1   1  -1  -1;
                         -1  -1  -1  -1  -1   1]
@@ -124,16 +124,16 @@ end
 
 @testset "Test Larger Functions" begin
     # comptue estimate in a=0,c=0 data
-    regionStruct=informme.estimateParams(
+    regionStruct=InformMe.estimateParams(
       "blah",
       "blah",
       10 .* ones(Int64,10),
-      Float64[informme.nDensity(collect(10:10:100),n,500) for n=1:10],
+      Float64[InformMe.nDensity(collect(10:10:100),n,500) for n=1:10],
       Int8[(rand()>0.5 ? 0 : 1) for ind1=1:100, ind2=1:10])
 
     # Note model is unidentifiable, so test an,cn not theta
-    an,cn = informme.computeAnCn(
-      Float64[informme.nDensity(collect(10:10:100),n,500) for n=1:10],
+    an,cn = InformMe.computeAnCn(
+      Float64[InformMe.nDensity(collect(10:10:100),n,500) for n=1:10],
       10 .* ones(Int64,10),regionStruct.thetabest)
     @test abs(mean(an)) < 0.1
     @test abs(mean(cn)) < 0.1
@@ -143,54 +143,54 @@ end
              Int8[0 for ind1=1:100, ind2=1:10]]
     dataMat[1:5,1:5].= -1
     dataMat[101:105,1:5].= -1
-    regionStruct=informme.estimateParams(
+    regionStruct=InformMe.estimateParams(
       "blah",
       "blah",
       10 .* ones(Int64,10),
-      Float64[informme.nDensity(collect(10:10:100),n,500) for n=1:10],
+      Float64[InformMe.nDensity(collect(10:10:100),n,500) for n=1:10],
       dataMat)
 
     # Note model is unidentifiable, so test an,cn not theta
-    an,cn = informme.computeAnCn(
-      Float64[informme.nDensity(collect(10:10:100),n,500) for n=1:10],
+    an,cn = InformMe.computeAnCn(
+      Float64[InformMe.nDensity(collect(10:10:100),n,500) for n=1:10],
       10 .* ones(Int64,10),regionStruct.thetabest)
     @test abs(mean(an)) < 0.1
     @test mean(cn) > 1
 
     # comptue estimate in a=inf,c=inf data
-    regionStruct=informme.estimateParams(
+    regionStruct=InformMe.estimateParams(
       "blah",
       "blah",
       10 .* ones(Int64,10),
-      Float64[informme.nDensity(collect(10:10:100),n,500) for n=1:10],
+      Float64[InformMe.nDensity(collect(10:10:100),n,500) for n=1:10],
       Int8[1 for ind1=1:100, ind2=1:10])
 
     # Note model is unidentifiable, so test an,cn not theta
-    an,cn = informme.computeAnCn(
-      Float64[informme.nDensity(collect(10:10:100),n,500) for n=1:10],
+    an,cn = InformMe.computeAnCn(
+      Float64[InformMe.nDensity(collect(10:10:100),n,500) for n=1:10],
       10 .* ones(Int64,10),regionStruct.thetabest)
     @test mean(an) > 9
     @test mean(cn) > 1
 
 
     # comptue estimate in a=-inf,c=inf data
-    regionStruct=informme.estimateParams(
+    regionStruct=InformMe.estimateParams(
       "blah",
       "blah",
       10 .* ones(Int64,10),
-      Float64[informme.nDensity(collect(10:10:100),n,500) for n=1:10],
+      Float64[InformMe.nDensity(collect(10:10:100),n,500) for n=1:10],
       Int8[0 for ind1=1:100, ind2=1:10])
 
     # Note model is unidentifiable, so test an,cn not theta
-    an,cn = informme.computeAnCn(
-      Float64[informme.nDensity(collect(10:10:100),n,500) for n=1:10],
+    an,cn = InformMe.computeAnCn(
+      Float64[InformMe.nDensity(collect(10:10:100),n,500) for n=1:10],
       10 .* ones(Int64,10),regionStruct.thetabest)
     @test mean(an) < -9
     @test mean(cn) > 1
 
     # Run fastaToCpG on toy data
     outdir = @__DIR__
-    informme.fastaToCpG("toy_genome.fasta",outdir=outdir)
+    InformMe.fastaToCpG("toy_genome.fasta",outdir=outdir)
     for chr = 1:5
         chr_num_str = string(chr)
         CpGdataT = joinpath(outdir,string("CpGlocationChr", chr_num_str, "_true.jld2"))
@@ -224,7 +224,7 @@ end
                     bamFile, region_str]
     SAMreads = split(readchomp(`$command`),'\n')
     CpGlocation = FileIO.load(joinpath(@__DIR__,"CpGlocationChr1_true.jld2"),"CpGlocation")
-    ansMat = informme.matrixFromReads(SAMreads,CpGlocation[1:10],true,0)
+    ansMat = InformMe.matrixFromReads(SAMreads,CpGlocation[1:10],true,0)
     @test ansMat == [ -1  -1  -1  -1  -1   1  1  1   1   1;
                       -1   1   0   1   1   1  0  1   1   0;
                       -1   0   1   1   1   1  1  1   1   0;
@@ -234,17 +234,17 @@ end
                       -1  -1  -1   1   1   1  0  0   1  -1]
 
     # test parTaskMatrix
-    result = informme.parTaskMatrix(1,CpGlocation,bamFile,true,0,"1",5,130,true)
+    result = InformMe.parTaskMatrix(1,CpGlocation,bamFile,true,0,"1",5,130,true)
     @test result.observedMatrix == ansMat
     
     # test estimation    
-    regionStruct=informme.estimateParams(
+    regionStruct=InformMe.estimateParams(
       "blah",
       "blah",
       10 .* ones(Int64,10),
       Float64[0.06 for n=1:10],
       ansMat;boundaryConditions=true)
-    an,cn = informme.computeAnCn(
+    an,cn = InformMe.computeAnCn(
       Float64[0.06 for n=1:10],
       10 .* ones(Int64,10),regionStruct.thetabest)
 
@@ -314,7 +314,7 @@ end
  
   
   # run test
-  informme.convertBAMtoBits("toy_normal_pe","normal",chr_nums=1:2,
+  InformMe.convertBAMtoBits("toy_normal_pe","normal",chr_nums=1:2,
                             numBasesToTrim=10,
                             boundaryConditions=true,
                             reference_path=joinpath(outdir,"genome"),
