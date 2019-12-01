@@ -8,10 +8,12 @@ makedocs(;
     ],
     repo="https://github.com/GarrettJenkinson/InformMe.jl/blob/{commit}{path}#L{line}",
     sitename="InformMe.jl",
-    authors="GarrettJenkinson",
-    assets=String[],
+    authors="GarrettJenkinson"
 )
 
 deploydocs(;
-    repo="github.com/GarrettJenkinson/InformMe.jl",
+    deps = Deps.pip("mkdocs", "python-markdown-math"),
+    repo = "github.com/GarrettJenkinson/InformMe.jl",
+    julia = "1.3",
+    osname = "linux"
 )
