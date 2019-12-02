@@ -10,6 +10,10 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install samtools
   - julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/timholy/QuadDIRECT.jl"))'
+script:
+  - julia --project --check-bounds=yes -e 'import Pkg; Pkg.add(PackageSpec(url="https://github.com/timholy/QuadDIRECT.jl")); using QuadDIRECT; Pkg.test("InformMe"; coverage=true)'
+codecov: true
+coveralls: true
 jobs:
   include:
     - stage: "Documentation"
@@ -19,5 +23,3 @@ jobs:
         - julia --color=yes --project=docs -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/timholy/QuadDIRECT.jl")); using QuadDIRECT; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
         - travis_wait julia --color=yes --project=docs docs/make.jl
       after_success: skip
-after_success:
-  - julia -e 'import Pkg; cd(Pkg.dir("InformMe")); Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
