@@ -32,8 +32,8 @@
  USAGE (optional):
 
  Example of optional usage with additional input parameters.
- estParamsForChr(mat_files,prefix,matrices_path,reference_path,chr_num,...
-          'regionSize',2000)
+ estParamsForChr(mat_files,prefix,matrices_path,reference_path,chr_num,
+                 regionSize=2000)
 
  MANDATORY INPUTS:
 

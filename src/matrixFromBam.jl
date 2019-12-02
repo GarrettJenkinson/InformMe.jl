@@ -30,7 +30,7 @@
  is methylated.
 
  This function depends on a working instalation of SAMtools that is on
- the system path \$PATH.
+ the system path $PATH.
 
  Before running this function, FastaToCpG.m must be run ONCE.
 
@@ -41,7 +41,7 @@
  USAGE (optional):
 
  Example of optional usage with additional input parameters.
- matrixFromBam(bam_prefix,chr_num,'reference_path','/path/to/ref')
+ matrixFromBam(bam_prefix,chr_num; reference_path="/path/to/ref")
 
  MADATORY INPUTS:
 
@@ -62,23 +62,23 @@
  reference_path
                 Path to the root subdirectory where the outputs of this
                 function are stored.
-                Default value: "\$REFGENEDIR"
+                Default value: "./genome/"
 
  bamfile_path
                 Path to the subdirectory where the BAM file is located.
-                Default value: "\$BAMDIR"
+                Default value: "./indexedBAMfiles/"
 
  matrices_path
                 Path to the subdirectory where the output of this function
                 is stored.
-                Default value: "\$INTERMEDIATE"
+                Default value: "./matrices/"
 
  pairedEnds
-                Flag for paired end read support. A value of 1 indicates
+                Flag for paired end read support. A value of true indicates
                 that the sequencer employed paired end reads, whereas a
-                value of 0 indicates that the sequencer employed single
+                value of false indicates that the sequencer employed single
                 end reads.
-                Default value: 1
+                Default value: true
 
  numBasesToTrim
                 A vector of integers specifying how many bases should be

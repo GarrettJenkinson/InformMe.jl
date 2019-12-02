@@ -33,7 +33,7 @@
 
  Example of optional usage with additional input parameters.
  methAnalysisForChr(prefix,chr_num,reference_path,estimation_path,
-              'outdir','/path/to/output')
+                    outdir="/path/to/output")
 
  MANDATORY INPUTS:
 
@@ -55,14 +55,14 @@
  estimation_path
                A string that specifies the path to the directory that
                contains the results of parameter estimation performed
-               by estParamsForChr.m.
+               by estParamsForChr.jl.
 
  OPTIONAL INPUTS:
 
  outdir
                A string that specifies the path of the directory in which
                the methylation analysis results are written.
-               Default value './results/'
+               Default value: "./results/"
 
  MSIflag
                Flag that determines whether this function performs
