@@ -9,7 +9,7 @@ notifications:
 before_install:
   - sudo apt-get update
   - sudo apt-get -y install samtools
-  - julia -e 'using Pkg; Pkg.add("https://github.com/timholy/QuadDIRECT.jl")'
+  - julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/timholy/QuadDIRECT.jl"))'
 jobs:
   include:
     - stage: "Documentation"
