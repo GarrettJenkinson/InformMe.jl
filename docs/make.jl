@@ -14,9 +14,6 @@ makedocs(;
 
 deploydocs(;
     branch = "gh-pages",
-    latest = "master",
     target="build",
-    repo = "github.com/GarrettJenkinson/InformMe.jl",
-    julia = "1.3",
-    osname = "linux"
+    repo = "github.com/GarrettJenkinson/InformMe.jl"
 )
