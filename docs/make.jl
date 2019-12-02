@@ -2,7 +2,7 @@ using Documenter, InformMe
 
 makedocs(;
     modules=[InformMe],
-    format=:html,
+    format=Documenter.HTML(),
     source="src",
     pages=[
         "Home" => "index.md",
