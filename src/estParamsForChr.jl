@@ -18,7 +18,7 @@
 # or see <http://www.gnu.org/licenses/>.
 #
 #
-"""
+@doc raw"""
  This function takes a list of BAM files (which correspond to the same
  phenotype) and performs statistical model estimation within a specific
  chromosome of interest. The function can be used on a computing cluster

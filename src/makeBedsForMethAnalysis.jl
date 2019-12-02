@@ -17,7 +17,7 @@
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 # or see <http://www.gnu.org/licenses/>.
 #
-"""
+@doc raw"""
  This function makes BED files for the methylation analysis results
  obtained by means of MethAnalysisForChr.m for a single phenotype.
 

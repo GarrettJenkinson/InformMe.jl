@@ -18,7 +18,7 @@
 # or see <http://www.gnu.org/licenses/>.
 #
 #
-"""
+@doc raw"""
  This function performs methylation analysis of a given chromosome in a
  single phenotype. The function can be used on a computing cluster to
  break the analysis work to many independent parallel job processes.

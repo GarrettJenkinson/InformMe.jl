@@ -18,7 +18,7 @@
 # or see <http://www.gnu.org/licenses/>.
 #
 #
-"""
+@doc raw"""
  This function processes a BAM file with aligned reads to a reference
  genome and produces methylation information for nonoverlapping genomic
  regions (containing the same number of base pairs) in a given chromosome.
@@ -30,7 +30,7 @@
  is methylated.
 
  This function depends on a working instalation of SAMtools that is on
- the system path \$PATH.
+ the system path $PATH.
 
  Before running this function, FastaToCpG.m must be run ONCE.
 

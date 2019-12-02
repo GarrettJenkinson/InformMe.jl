@@ -17,7 +17,7 @@
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 # or see <http://www.gnu.org/licenses/>.
 #
-"""
+@doc raw"""
  Runs the entire MethToBits pipeline.
 
  This function depends on a working instalation of SAMtools that is on
