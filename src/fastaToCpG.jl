@@ -29,33 +29,32 @@
  This function must be run ONLY ONCE before proceeding with analysis
  of BAM files.
 
- USAGE (default):
+## USAGE (default):
 
- fastaToCpg(FASTAfilename)
+ `fastaToCpg(FASTAfilename)`
 
- USAGE (optional):
+## USAGE (optional):
 
  Example of optional usage with additional input parameters.
- FastaToCpG(FASTAfilename,'maxChrNum',23)
 
- MADATORY INPUT:
+ `FastaToCpG(FASTAfilename,outdir="/path/to/outputdir/")`
 
- FASTAfilename
+## MADATORY INPUT:
+
+ `FASTAfilename`
+
                Full path of FASTA-formatted reference genome to which
                available BAM files have been aligned to.
 
- OPTIONAL INPUTS:
+## OPTIONAL INPUTS:
 
- outdir
+ `outdir`
+
                Path where the output will be stored at.
-         Default: "\$REFGENEDIR"
+               Default value: "./"
 
- maxChrNum
-               Maximum number of chromosomes to be processed. The
-               function will process chromosomes 1,2,...,maxChrNum.
-               Default value: 22
+ `wsize`
 
- wsize
                Window size used in CpG density calculations.
                Default value: 1000
 

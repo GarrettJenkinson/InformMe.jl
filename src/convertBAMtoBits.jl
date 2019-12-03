@@ -25,17 +25,17 @@
 
  Before running this function, FastaToCpG.m must be run ONCE.
 
- ##USAGE (default):
+## USAGE (default):
 
  `convertBAMtoBits(bamFilenames,phenoName)`
 
- ##USAGE (optional):
+## USAGE (optional):
 
  Example of optional usage with additional input parameters.
 
  `matrixFromBam(bam_prefix,chr_num,reference_path="/path/to/ref")`
 
- ##MADATORY INPUTS:
+## MADATORY INPUTS:
 
  `bamFilenames`
 
@@ -54,7 +54,7 @@
                 sample/model that is built.
 
 
- ##OPTIONAL INPUTS:
+##OPTIONAL INPUTS:
 
  `reference_path`
 
