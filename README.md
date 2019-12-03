@@ -1,10 +1,11 @@
 # InformMe
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://GarrettJenkinson.github.io/InformMe.jl/stable)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://GarrettJenkinson.github.io/InformMe.jl/dev)
-[![Build Status](https://travis-ci.com/GarrettJenkinson/InformMe.jl.svg?branch=master)](https://travis-ci.com/GarrettJenkinson/InformMe.jl)
-[![Codecov](https://codecov.io/gh/GarrettJenkinson/InformMe.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/GarrettJenkinson/InformMe.jl)
-[![Coveralls](https://coveralls.io/repos/github/GarrettJenkinson/InformMe.jl/badge.svg?branch=master)](https://coveralls.io/github/GarrettJenkinson/InformMe.jl?branch=master)
+*An information-theoretic tool for analyzing DNA methylation sequencing data.*
+
+
+| **Documentation**                                                               | **Build Status**                                                                                |
+|:-------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------:|
+| [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://GarrettJenkinson.github.io/InformMe.jl/stable) [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://GarrettJenkinson.github.io/InformMe.jl/dev) | [![Build Status](https://travis-ci.com/GarrettJenkinson/InformMe.jl.svg?branch=master)](https://travis-ci.com/GarrettJenkinson/InformMe.jl) [![Codecov](https://codecov.io/gh/GarrettJenkinson/InformMe.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/GarrettJenkinson/InformMe.jl) [![Coveralls](https://coveralls.io/repos/github/GarrettJenkinson/InformMe.jl/badge.svg?branch=master)](https://coveralls.io/github/GarrettJenkinson/InformMe.jl?branch=master) |
 
 
 A julia port of the informME software package. informME is written
@@ -12,13 +13,11 @@ in MATLAB, bash, C++, and R. By porting the code to julia, we
 hope to streamline the software, and remove the requirement
 that the user has a MATLAB software license.
 
-WARNING: THIS PACKAGE IS A WORK IN PROGRESS. FOR NOW, YOU SHOULD USE
-THE EXTENSIVELY TESTED MATLAB VERSION AVAILABLE HERE:
-
-https://github.com/GarrettJenkinson/informME
+!!! warning "WARNING"
+    THIS PACKAGE IS A WORK IN PROGRESS. FOR NOW, YOU SHOULD USE THE EXTENSIVELY TESTED MATLAB VERSION AVAILABLE HERE: [https://github.com/GarrettJenkinson/informME](https://github.com/GarrettJenkinson/informME)
 
 
-# Installation
+## Installation
 
 Samtools must be installed and on your system path.
 
@@ -46,7 +45,13 @@ the installation can be tested at the pkg prompt by running
 pkg> test InformMe
 ```
 
-# License
+## Documentation
+
+- [**STABLE**](https://GarrettJenkinson.github.io/InformMe.jl/stable) &mdash; **documentation of the most recently tagged version.**
+- [**DEVEL**](https://GarrettJenkinson.github.io/InformMe.jl/dev) &mdash; *documentation of the in-development version.*
+
+## License
+
 All code except for the maxent algorithm (contained in /src/maxent.jl)
 is GPLv3 licensed. The maxent algorithm has the following licensing
 information in its header:
