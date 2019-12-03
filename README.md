@@ -13,8 +13,7 @@ in MATLAB, bash, C++, and R. By porting the code to julia, we
 hope to streamline the software, and remove the requirement
 that the user has a MATLAB software license.
 
-!!! warning "WARNING"
-    THIS PACKAGE IS A WORK IN PROGRESS. FOR NOW, YOU SHOULD USE THE EXTENSIVELY TESTED MATLAB VERSION AVAILABLE HERE: [https://github.com/GarrettJenkinson/informME](https://github.com/GarrettJenkinson/informME)
+> :warning: **WARNING! THIS PACKAGE IS A WORK IN PROGRESS. FOR NOW, YOU SHOULD USE THE EXTENSIVELY TESTED MATLAB VERSION AVAILABLE HERE:** [https://github.com/GarrettJenkinson/informME](https://github.com/GarrettJenkinson/informME)
 
 
 ## Installation
