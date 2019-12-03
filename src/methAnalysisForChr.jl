@@ -25,60 +25,69 @@
  This is performed only after estParamsForChr.m in the Modeling
  subdirectory is run to build the Ising models for the phenotype.
 
- USAGE (default):
+## USAGE (default):
 
- methAnalysisForChr(prefix,chr_num,reference_path,estimation_path)
+ `methAnalysisForChr(prefix,chr_num,reference_path,estimation_path)`
 
- USAGE (optional):
+## USAGE (optional):
 
  Example of optional usage with additional input parameters.
- methAnalysisForChr(prefix,chr_num,reference_path,estimation_path,
-                    outdir="/path/to/output")
+ 
+ `methAnalysisForChr(prefix,chr_num,reference_path,estimation_path,
+                    outdir="/path/to/output")`
 
- MANDATORY INPUTS:
+## MANDATORY INPUTS:
 
- prefix
+ `prefix`
+
                A string that specifies the name of the phenotype to be
                analyzed.
 
- chr_num
+ `chr_num`
+
                Chromosome number (1 to 22 in humans) specifying the
                chromosome for which methylation analyis must be
                performed.
 
- reference_path
+ `reference_path`
+
                A string that specifies the path to the directory that
                contains the results of analysis of the reference genome
                performed by FastaToCpG.m as well as the results of
                methylation calling performed by matrixFromBam.jl.
 
- estimation_path
+ `estimation_path`
+
                A string that specifies the path to the directory that
                contains the results of parameter estimation performed
                by estParamsForChr.jl.
 
- OPTIONAL INPUTS:
+## OPTIONAL INPUTS:
 
- outdir
+ `outdir`
+
                A string that specifies the path of the directory in which
                the methylation analysis results are written.
                Default value: "./results/"
 
- MSIflag
+ `MSIflag`
+
                Flag that determines whether this function performs
                computation of the methylation sensitivity index (MSI).
                false: no MSI computation.
                true: allow MSI computation.
                Default value: false
 
- ESIflag
+ `ESIflag`
+
                Flag that determines whether this function performs
                computation of the entropic sensitivity index (ESI).
                false: no ESI computation.
                true: allow ESI computation.
                Default value: false
 
- MCflag
+ `MCflag`
+
                Flag that determines whether this function performs
                computation of turnover ratios, CpG entropies, capacities,
                and relative dissipated energies of methylation
@@ -87,12 +96,14 @@
                true: allow MC computations.
                Default value: false
 
- regionSize
+ `regionSize`
+
                The size of the genomic regions used for parameter
                estimation (in number of base pairs).
                Default value: 3000
 
- subregionSize
+ `subregionSize`
+
                The size of the subregions of a genomic region used
                for methylation analysis (in number of base pairs).
                The ratio regionSize/subregionSize must be an integer.

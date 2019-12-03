@@ -22,102 +22,107 @@
  methylation analysis results obtained by means of MethAnalysisForChr.m
  applied on two dinstict phenotypes.
 
- USAGE (default):
+## USAGE (default):
 
- makeBedsForDiffMethAnalysis(prefix_1,prefix_2,analysis_path_1,...
-    analysis_path_2,reference_path)
+ `makeBedsForDiffMethAnalysis(prefix_1,prefix_2,analysis_path_1,
+    analysis_path_2,reference_path)`
 
- MANDATORY INPUTS:
+## MANDATORY INPUTS:
 
- prefix_X
+ `prefix_X`
+
                Strings with the first string specifying
                the name of the first phenotype and the second string
                specifying the name of the second phenotype used for
                differential methylation analysis. Both phenotypes
-               must have already been analyzed with methAnalysisForChr.m.
+               must have already been analyzed with methAnalysisForChr.jl.
 
- analysis_path_X
+ `analysis_path_X`
+
                A string that specifies the path of the directory in which
                the methylation analysis results obtained by
-               MethAnalysisForChr.m are stored.
-        Default: "\$INTERMEDIATE"
+               MethAnalysisForChr.jl are stored.
 
- reference_path
+ `reference_path`
+
                A string that specifies the path to the directory that
                contains the results of analysis of the reference genome
                performed by FastaToCpG.m as well as the results of
-               methylation calling performed by matrixFromBam.m.
-        Default: "\$REFGENEDIR"
+               methylation calling performed by matrixFromBam.jl.
 
- OPTIONAL INPUTS:
+## OPTIONAL INPUTS:
 
- minChrNum
-               A number specifying the starting chromosome that will be
-               included in the BED files.
-               Default value: 1
+ `chrs`
 
- maxChrNum
-               A number specifying the last chromosome that will be
-               included in the outut BED files. Must be
-               maxChrNum >= minChrNum.
-               Default value: 22
+               A vector of strings of chromosomes to be output to the final
+               bed files. Default value: `[string("chr",i) for i=1:22]`
 
- outdir
+ `outdir`
+
                A string that specifies the path of the directory in which
                the output BED files are written.
-               Default value "\$INTERMEDIATE"
+               Default value: "./makeBedsForDiffMethAnalysis_out/"
 
- MSIflag
+ `MSIflag`
+
                Flag that determines whether this function performs
                computation of the methylation sensitivity index (MSI).
-               0: no MSI computation.
-               1: allow MSI computation.
-               Default value: 0
+               false: no MSI computation.
+               true: allow MSI computation.
+               Default value: false
 
- ESIflag
+ `ESIflag`
+
                Flag that determines whether this function performs
                computation of the entropic sensitivity index (ESI).
-               0: no ESI computation.
-               1: allow ESI computation.
-               Default value: 0
+               false: no ESI computation.
+               true: allow ESI computation.
+               Default value: false
 
- MCflag
+ `MCflag`
+
                Flag that determines whether this function performs
                computation of turnover ratios, CpG entropies, capacities,
                and relative dissipated energies of methylation
                channels (MCs).
-               0: no MC computations.
-               1: allow MC computations.
-               Default value: 0
+               false: no MC computations.
+               true: allow MC computations.
+               Default value: false
 
- regionSize
+ `regionSize`
+
                The size of the genomic regions used for parameter
                estimation (in number of base pairs).
                Default value: 3000
 
- subregionSize
+ `subregionSize`
+
                The size of the subregions of a genomic region used
                for methylation analysis (in number of base pairs).
                The ratio regionSize/subregionSize must be an integer.
                Default value: 150
 
- minNumCpG     The minimum number of CpG sites within an analysis
+ `minNumCpG`
+
+               The minimum number of CpG sites within an analysis
                subregion required for performing full methylation-based
                differential classification.
                Default value: 2
 
- thresh
+ `thresh`
 
                A scalar used as a threshold in methylation-based
                differential classification.
                Default value: 0.55
 
- threshDMU
+ `threshDMU`
+
                A 1x6 vector containing threshold values used for
                methylation-based differential classification.
                Default value: [-1,-0.55,-0.1,0.1,0.55,1]
 
- threshDEU
+ `threshDEU`
+
                A 1x8 vector containing threshold values used for
                entropy-based differential classification.
                Default value: [-1,-0.5,-0.3,-0.05,0.05,0.3,0.5,1]
@@ -128,7 +133,7 @@
 
 """
 function diffMethAnalysisToBed(phenoName_1,phenoName_2,analysis_path_1,analysis_path_2,reference_path,
-                                  outdir="../makeBedsForDiffMethAnalysis_out/",
+                                  outdir="./makeBedsForDiffMethAnalysis_out/",
                                   chrs=[string("chr",i) for i=1:22],
                                   #  minChrNum=1,
                                   #  maxChrNum=22,

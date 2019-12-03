@@ -25,50 +25,58 @@
  to break the work of model estimation to many independent parallel job
  processes. This is performed only after matrixFromBam.m.
 
- USAGE (default):
+## USAGE (default):
 
- estParamsForChr(mat_files,prefix,matrices_path,reference_path,chr_num)
+ `estParamsForChr(mat_files,prefix,matrices_path,reference_path,chr_num)`
 
- USAGE (optional):
+## USAGE (optional):
 
  Example of optional usage with additional input parameters.
- estParamsForChr(mat_files,prefix,matrices_path,reference_path,chr_num,
-                 regionSize=2000)
+
+ `estParamsForChr(mat_files,prefix,matrices_path,reference_path,chr_num,
+                 regionSize=2000)`
 
  MANDATORY INPUTS:
 
- mat_files
+ `mat_files`
+
         All the .mat files to be included in the model. This can be a
         single .mat file or multiple files in the form of a comma-sepa-
         rated list of files.
 
- prefix
+ `prefix`
+
         A string that specifies the name of the modeled phenotype.
         The output files produced will contain this prefix.
 
- matrices_path
+ `matrices_path`
+
         A string that specifies the path to the directory that
         where the output will be stored.
 
- reference_path
+ `reference_path`
+
         A string that specifies the path to the directory that
         contains the results of analysis of the reference genome
         performed by FastaToCpG.m as well as the results of
         methylation calling performed by matrixFromBam.m.
 
- chr_num
+ `chr_num`
+
         Chromosome number 1 to 22 (in humans) specifying the
         chromosome for which statistical estimation must be
         performed.
 
- OPTIONAL INPUTS:
+## OPTIONAL INPUTS:
 
- regionSize
+ `regionSize`
+
         The size of the genomic region used for parameter
         estimation (in number of base pairs).
         Default value: 3000
 
- boundaryConditions
+ `boundaryConditions`
+
         Flag to decide if boundary conditions should be estimated
         freely in MLE.
         Default value: false

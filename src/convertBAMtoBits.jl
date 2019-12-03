@@ -21,23 +21,24 @@
  Runs the entire MethToBits pipeline.
 
  This function depends on a working instalation of SAMtools that is on
- the system path \$PATH.
+ the system path $PATH.
 
  Before running this function, FastaToCpG.m must be run ONCE.
 
- USAGE (default):
+ ##USAGE (default):
 
- convertBAMtoBits(bamFilenames,phenoName)
+ `convertBAMtoBits(bamFilenames,phenoName)`
 
- USAGE (optional):
+ ##USAGE (optional):
 
  Example of optional usage with additional input parameters.
 
- matrixFromBam(bam_prefix,chr_num,'reference_path','/path/to/ref')
+ `matrixFromBam(bam_prefix,chr_num,reference_path="/path/to/ref")`
 
- MADATORY INPUTS:
+ ##MADATORY INPUTS:
 
- bamFilenames
+ `bamFilenames`
+
                 A comma seperated string with list of input bam file
                 names without the ".bam" extension. These
                 files must be sorted from the least to the greatest base
@@ -47,47 +48,55 @@
                 contain "_" instead. Moreover, the file name should be
                 unique.
 
- phenoName
+ `phenoName`
+
                 A string which will be the unique identifier of this 
                 sample/model that is built.
 
 
-OPTIONAL INPUTS:
+ ##OPTIONAL INPUTS:
 
- reference_path
+ `reference_path`
+
                 Path to the root subdirectory where the outputs of this
                 function are stored.
                 Default value: "./genome/"
 
- bamfile_path
+ `bamfile_path`
+
                 Path to the subdirectory where the BAM file is located.
                 Default value: "./indexedBAMfiles/"
 
- matrices_path
+ `matrices_path`
+
                 Path to the subdirectory where the output of this function
                 is stored.
                 Default value: "./matrices/"
 
-estimation_path
+ `estimation_path`
+
                 A string that specifies the path to the directory that
                 contains the results of parameter estimation performed
                 by estParamsForChr.jl.
                 Default value: "./estimation/"
 
 
- outdir
+ `outdir`
+
                A string that specifies the path of the directory in which
                the methylation analysis results are written.
                Default value: "./output/"
 
- pairedEnds
+ `pairedEnds`
+         
                 Flag for paired end read support. A value of 1 indicates
                 that the sequencer employed paired end reads, whereas a
                 value of 0 indicates that the sequencer employed single
                 end reads.
                 Default value: true
 
-numBasesToTrim
+ `numBasesToTrim`
+
                 A vector of integers specifying how many bases should be
                 trimmed from the begining of each read. If the vector
                 contains two integers, then the first integer specifies
@@ -100,36 +109,42 @@ numBasesToTrim
                 must be set to 0.
                 Default value: 0
 
- regionSize
+ `regionSize`
+
                 The size of the genomic regions for which methylation
                 information is produced (in number of base pairs).
                 Default value: 3000
 
- minCpGsReqToModel
+ `minCpGsReqToModel`
+
                 The minimum number of CpG sites within a genomic region
                 required to perform statistical estimation.
                 Default value: 10
 
- boundaryConditions
+ `boundaryConditions`
+
                 Flag to decide if boundary conditions should be estimated
                 freely in MLE.
                 Default value: false
 
- MSIflag
+ `MSIflag`
+
                Flag that determines whether this function performs
                computation of the methylation sensitivity index (MSI).
                false: no MSI computation.
                true: allow MSI computation.
                Default value: false
 
- ESIflag
+ `ESIflag`
+
                Flag that determines whether this function performs
                computation of the entropic sensitivity index (ESI).
                false: no ESI computation.
                true: allow ESI computation.
                Default value: false
 
- MCflag
+ `MCflag`
+
                Flag that determines whether this function performs
                computation of turnover ratios, CpG entropies, capacities,
                and relative dissipated energies of methylation
@@ -138,12 +153,14 @@ numBasesToTrim
                true: allow MC computations.
                Default value: false
 
- chr_nums
+ `chr_nums`
+
               A vector with the chromosomes to be processed (without 
               "chr" string). 
               Default value: 1:22
 
- numProcessors
+ `numProcessors`
+
               The number of processors to use in the computations.
               Note that julia must be started as "julia -p 4" if
               four processors are desired. The nprocs() function

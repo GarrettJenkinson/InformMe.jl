@@ -34,18 +34,20 @@
 
  Before running this function, FastaToCpG.m must be run ONCE.
 
- USAGE (default):
+## USAGE (default):
 
- matrixFromBam(bam_prefix,chr_num)
+ `matrixFromBam(bam_prefix,chr_num)`
 
- USAGE (optional):
+## USAGE (optional):
 
  Example of optional usage with additional input parameters.
- matrixFromBam(bam_prefix,chr_num; reference_path="/path/to/ref")
+ 
+ `matrixFromBam(bam_prefix,chr_num; reference_path="/path/to/ref")`
 
- MADATORY INPUTS:
+## MADATORY INPUTS:
 
- bam_prefix
+ `bam_prefix`
+
                 Prefix of the BAM file (without the .bam extension). This
                 file must be sorted from the least to the greatest base
                 pair position along the reference sequence and must be
@@ -54,33 +56,39 @@
                 contain "_" instead. Moreover, the file name should be
                 unique.
 
- chr_num
+ `chr_num`
+
                 Number representing the chromosome to be processed.
 
- OPTIONAL INPUTS:
+## OPTIONAL INPUTS:
 
- reference_path
+ `reference_path`
+
                 Path to the root subdirectory where the outputs of this
                 function are stored.
                 Default value: "./genome/"
 
- bamfile_path
+ `bamfile_path`
+
                 Path to the subdirectory where the BAM file is located.
                 Default value: "./indexedBAMfiles/"
 
- matrices_path
+ `matrices_path`
+
                 Path to the subdirectory where the output of this function
                 is stored.
                 Default value: "./matrices/"
 
- pairedEnds
+ `pairedEnds`
+
                 Flag for paired end read support. A value of true indicates
                 that the sequencer employed paired end reads, whereas a
                 value of false indicates that the sequencer employed single
                 end reads.
                 Default value: true
 
- numBasesToTrim
+ `numBasesToTrim`
+
                 A vector of integers specifying how many bases should be
                 trimmed from the begining of each read. If the vector
                 contains two integers, then the first integer specifies
@@ -93,12 +101,14 @@
                 must be set to 0.
                 Default value: 0
 
- regionSize
+ `regionSize`
+
                 The size of the genomic regions for which methylation
                 information is produced (in number of base pairs).
                 Default value: 3000
 
- minCpGsReqToModel
+ `minCpGsReqToModel`
+
                 The minimum number of CpG sites within a genomic region
                 required to perform statistical estimation.
                 Default value: 10

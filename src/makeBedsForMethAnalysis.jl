@@ -21,66 +21,67 @@
  This function makes BED files for the methylation analysis results
  obtained by means of MethAnalysisForChr.m for a single phenotype.
 
- USAGE (default):
+## USAGE (default):
 
- makeBedsForMethAnalysis(prefix,analysis_path,reference_path)
+ `makeBedsForMethAnalysis(prefix,analysis_path,reference_path)`
 
- USAGE (optional):
+## USAGE (optional):
 
  Example of optional usage with additional input parameters.
- makeBedsForMethAnalysis(prefix,analysis_path,reference_path,'outdir',
-    '/path/to/output')
 
- MANDATORY INPUTS:
+`makeBedsForMethAnalysis(prefix,analysis_path,reference_path,
+                         outdir="/path/to/output")`
 
- prefix
+## MANDATORY INPUTS:
+
+ `prefix`
+
                A string that specifies the name of the phenotype.
 
- analysis_path
+ `analysis_path`
+
                A string that specifies the path of the directory in which
                the model was constructed.
-        Default: "\$INTERMEDIATE"
 
- reference_path
+ `reference_path`
+
                A string that specifies the path to the directory that
                contains the results of analysis of the reference genome
                performed by FastaToCpG.m as well as the results of
                methylation calling performed by matrixFromBam.jl.
-        Default: "\$REFGENEDIR"
 
- OPTIONAL INPUTS:
+## OPTIONAL INPUTS:
 
- minChrNum
-               A number specifying the starting chromosome that will be
-               included in the BED files.
-               Default value: 1
+`chrs`
 
- maxChrNum
-               A number specifying the last chromosome that will be
-               included in the output BED files. Must be
-               maxChrNum >= minChrNum.
-               Default value: 22
+              A vector of strings for the chromosomes to output to the
+              final bed files. Default value: `[string("chr",i) for i=1:22]`
 
- outdir
+ `outdir`
+
                A string that specifies the path of the directory in which
                the output BED files are written.
-               Default value './'
+               Default value: "./"
 
- MSIflag
+
+ `MSIflag`
+
                Flag that determines whether this function performs
                computation of the methylation sensitivity index (MSI).
                false: no MSI computation.
                true: allow MSI computation.
                Default value: false
 
- ESIflag
+ `ESIflag`
+
                Flag that determines whether this function performs
                computation of the entropic sensitivity index (ESI).
                false: no ESI computation.
                true: allow ESI computation.
                Default value: false
 
- MCflag
+ `MCflag`
+
                Flag that determines whether this function performs
                computation of turnover ratios, CpG entropies, capacities,
                and relative dissipated energies of methylation
@@ -89,17 +90,20 @@
                true: allow MC computations.
                Default value: false
 
- thresh
+ `thresh`
+
                A scalar used as a threshold in methylation-based
                classification.
                Default value: 0.4
 
- regionSize
+ `regionSize`
+
                The size of the genomic regions used for parameter
                estimation (in number of base pairs).
                Default value: 3000
 
- subregionSize
+ `subregionSize`
+
                The size of the subregions of a genomic region used
                for methylation analysis (in number of base pairs).
                The ratio regionSize/subregionSize must be an integer.
@@ -108,7 +112,6 @@
  The default values of thresh, regionSize, and subregionSize should only
  be changed by an expert with a detailed understanding of the code and
  the methods used.
-
 """
 function makeBedsForMethAnalysis(phenoName,analysis_path,reference_path;
                               outdir="./singleMethAnalysisToBed_out/",
