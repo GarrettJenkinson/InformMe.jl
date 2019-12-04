@@ -31,7 +31,7 @@ NOTE2: At this time the statistical model of informME has been designed to work 
 
 `convertBAMtoBits(bamFilenames,phenoName)`
 
-Steps 2 through 6 below can be invoked by the single command above, where bamFilenames is a list of bam files to be modeled and assigned the phenotype name given by the argument phenoName which should be unique to this sample. 
+Steps 2 through 5 below can be invoked by the single command above, where bamFilenames is a list of bam files to be modeled and assigned the phenotype name given by the argument phenoName which should be unique to this sample. 
 
 
 ### 2. METHYLATION DATA MATRIX GENERATION: 
