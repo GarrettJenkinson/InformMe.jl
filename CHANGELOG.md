@@ -1,5 +1,10 @@
 # InformMe.jl changelog
 
+## Dev Branch
+
+* ![Enhancement][badge-enhancement] Updated documentation and automated code coverage.
+
+
 ## Version `v0.1.0`
 
 * ![Enhancement][badge-enhancement] First attempt at porting the [matlab-based informME software package][informME] to julia.
