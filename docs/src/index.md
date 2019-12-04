@@ -1,12 +1,13 @@
 # InformMe.jl Documentation
 
-RUNNING informME
--------------------
+```@contents
+```
+
+## RUNNING informME
 
 Run the informME software using the following steps in the indicated order (see below for the detailed documentation of each function).
 
-1. REFERENCE GENOME ANALYSIS:
--------------------------------
+### 1. REFERENCE GENOME ANALYSIS:
 	
 `fastaToCpg(FASTAfilename)`
 
@@ -26,16 +27,14 @@ NOTE1: This step only needs to be completed one time for a given reference genom
 
 NOTE2: At this time the statistical model of informME has been designed to work only with autosomes, and so the informME software is not recommended for mitochondrial chromosomes, lambda spike-ins, partial contigs, sex chromosomes, et cetera. 
 
-2-5. COMBINED SINGLE SAMPLE ANALYSIS:
-----------------------------------------
+### 2-5. COMBINED SINGLE SAMPLE ANALYSIS:
 
 `convertBAMtoBits(bamFilenames,phenoName)`
 
 Steps 2 through 6 below can be invoked by the single command above, where bamFilenames is a list of bam files to be modeled and assigned the phenotype name given by the argument phenoName which should be unique to this sample. 
 
 
-2. METHYLATION DATA MATRIX GENERATION: 
-----------------------------------------
+### 2. METHYLATION DATA MATRIX GENERATION: 
 	
 `matrixFromBam(BAM_FILE,CHR_NUM)`
 
@@ -47,8 +46,7 @@ This step takes the BAM file BAM\_FILE as input and generates the methylation da
 
 NOTE1: See reference [1], "Online Methods: Quality control and alignment" for our suggested preprocessing steps when generating a sorted, indexed, deduplicated BAM file to input to informME.  
 
-3. MODEL ESTIMATION:
----------------------------------
+### 3. MODEL ESTIMATION:
 
 `estParamsForChr(MAT_FILES,PHENO,matrices_path,reference_path,CHR_NUM)`
 
@@ -66,8 +64,7 @@ informME learns the parameters of the Ising probability distribution by combinin
 
 * the log partition function of the estimated Ising model
 
-4. MODEL ANALYSIS:
----------------------------------
+### 4. MODEL ANALYSIS:
 
 `methAnalysisForChr(prefix,chr_num,reference_path,estimation_path)`
 
@@ -100,8 +97,7 @@ This step consists of analyzing the model learned by computing a number of stati
 * relative dissipated energies
 
 
-5. GENERATE BED FILES FOR SINGLE ANALYSIS:
-------------------------------------------
+### 5. GENERATE BED FILES FOR SINGLE ANALYSIS:
 
 `makeBedsForMethAnalysis(PHENO,analysis_path,reference_path)`
 
@@ -128,8 +124,7 @@ This function makes BED files from the methylation analysis results obtained aft
 * RDE-PHENO.bed (if MCflag passed): relative dissipated energies  
 
 
-6. GENERATE BED FILES FOR DIFFERENTIAL ANALYSIS:
-------------------------------------------------
+### 6. GENERATE BED FILES FOR DIFFERENTIAL ANALYSIS:
 
 `makeBedsForDiffMethAnalysis(PHENO1,PHENO2,analysis_path_1,
                              analysis_path_2,reference_path)`
@@ -156,15 +151,10 @@ This function makes BED files for the differential methylation analysis results 
 * dRDE-PHENO1-VS-PHENO2.bed (if --MC flag passed): differences in relative dissipated energies
 
 
-7. POST PROCESSING:
--------------------
+### 7. POST PROCESSING:
 
 See the [original informME package](https://github.com/GarrettJenkinson/informME) for post processing scripts in R for gene/region rankings and DMR finding. 
 
-
-
-```@contents
-```
 
 ## Functions
 
