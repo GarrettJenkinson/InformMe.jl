@@ -190,7 +190,7 @@ end
 
     # Run fastaToCpG on toy data
     outdir = @__DIR__
-    InformMe.fastaToCpG("toy_genome.fasta",outdir=outdir)
+    InformMe.fastaToCpG(joinpath(outdir,"toy_genome.fasta"),outdir=outdir)
     for chr = 1:5
         chr_num_str = string(chr)
         CpGdataT = joinpath(outdir,string("CpGlocationChr", chr_num_str, "_true.jld2"))
